@@ -1,26 +1,285 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────
+   LOCAL FONTS
+───────────────────────────────────────────── */
+@font-face {
+  font-family: "AnotherDanger";
+  src: url("./fonts/AnotherDanger.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "InterBlack";
+  src: url("./fonts/Inter_Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "NotoSans";
+  src: url("./fonts/NotoSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────
+   PROFESSIONAL THEME (default)
+───────────────────────────────────────────── */
+:root,
+[data-theme="professional"] {
+  --bg:           #0a0a0f;
+  --surface:      #12121a;
+  --surface-2:    #1a1a26;
+  --border:       rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text:         #f0f0f5;
+  --text-muted:   #7070a0;
+  --accent:       #6c63ff;
+  --accent-light: #a78bfa;
+  --accent-glow:  rgba(108, 99, 255, 0.15);
+  --btn-text:     #ffffff;
+
+  --font-display: "InterBlack", sans-serif;
+  --font-body:    "NotoSans", sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+
+  --transition: 0.25s ease;
+}
+
+/* ─────────────────────────────────────────────
+   UNLEASHED / CYBERPUNK THEME
+───────────────────────────────────────────── */
+[data-theme="unleashed"] {
+  --bg:           #03020f;
+  --surface:      #07061a;
+  --surface-2:    #0d0b22;
+  --border:       rgba(242, 226, 5, 0.12);
+  --border-hover: rgba(242, 226, 5, 0.4);
+  --text:         #f0eeff;
+  --text-muted:   rgba(242, 226, 5, 0.5);
+  --accent:       #da227b;
+  --accent-light: #1bc7fb;
+  --accent-glow:  rgba(218, 34, 123, 0.15);
+  --btn-text:     #ffffff;
+
+  --font-display: "AnotherDanger", sans-serif;
+  --font-body:    "NotoSans", sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.hero-name,
+nav .logo {
+  font-family: var(--font-display);
+}
+
+/* ─────────────────────────────────────────────
+   UNLEASHED: SCANLINE OVERLAY
+───────────────────────────────────────────── */
+[data-theme="unleashed"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─────────────────────────────────────────────
+   UNLEASHED: GLITCH ANIMATION
+───────────────────────────────────────────── */
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 95% 0); transform: translate(-3px, 0); }
+  20%       { clip-path: inset(30% 0 50% 0); transform: translate(3px, 0); }
+  40%       { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 0); }
+  60%       { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
+  80%       { clip-path: inset(80% 0 5% 0);  transform: translate(-1px, 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(50% 0 30% 0); transform: translate(3px, 0); }
+  25%       { clip-path: inset(20% 0 70% 0); transform: translate(-3px, 0); }
+  50%       { clip-path: inset(70% 0 10% 0); transform: translate(2px, 0); }
+  75%       { clip-path: inset(5% 0 90% 0);  transform: translate(-2px, 0); }
+}
+
+[data-theme="unleashed"] .glitch {
+  position: relative;
+}
+
+[data-theme="unleashed"] .glitch::before,
+[data-theme="unleashed"] .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  font: inherit;
+  color: inherit;
+}
+
+[data-theme="unleashed"] .glitch::before {
+  color: #1bc7fb;
+  animation: glitch-1 3s infinite linear;
+}
+
+[data-theme="unleashed"] .glitch::after {
+  color: #da227b;
+  animation: glitch-2 3s infinite linear;
+  animation-delay: 0.1s;
+}
+
+/* ─────────────────────────────────────────────
+   UNLEASHED: CYBER GRID BACKGROUND
+───────────────────────────────────────────── */
+[data-theme="unleashed"] .cyber-grid {
+  background-image:
+    linear-gradient(rgba(242, 226, 5, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 226, 5, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─────────────────────────────────────────────
+   SHARED UTILITY CLASSES
+───────────────────────────────────────────── */
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="unleashed"] .section-label {
+  color: var(--accent-light);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+[data-theme="unleashed"] .section-title {
+  color: #f2e205;
+  letter-spacing: 0.02em;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), transform var(--transition);
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─────────────────────────────────────────────
+   PROJECT DETAIL PAGE
+───────────────────────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--text);
 }
