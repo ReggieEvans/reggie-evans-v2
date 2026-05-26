@@ -10,61 +10,20 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={`Switch to ${isUnleashed ? "professional" : "unleashed"} mode`}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "10px",
-        background: "var(--surface)",
-        border: "1px solid var(--border)",
-        borderRadius: "100px",
-        padding: "6px 14px 6px 10px",
-        cursor: "pointer",
-        transition: "border-color 0.25s ease",
-        color: "var(--text-muted)",
-        fontSize: "11px",
-        fontWeight: 700,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
-        fontFamily: "inherit",
-        whiteSpace: "nowrap",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLButtonElement).style.borderColor =
-          "var(--accent)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLButtonElement).style.borderColor =
-          "var(--border)";
-      }}
+      className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)] transition-colors duration-250 cursor-pointer text-[11px] font-bold tracking-widest uppercase whitespace-nowrap"
     >
-      {/* Track */}
+      {/* Toggle track */}
       <span
-        style={{
-          position: "relative",
-          width: "32px",
-          height: "18px",
-          background: isUnleashed ? "var(--accent)" : "var(--surface-2)",
-          border: "1px solid var(--border)",
-          borderRadius: "100px",
-          transition: "background 0.3s ease",
-          flexShrink: 0,
-        }}
+        className="relative w-8 h-[18px] rounded-full border border-[var(--border)] transition-colors duration-300 shrink-0"
+        style={{ background: isUnleashed ? "var(--accent)" : "var(--surface-2)" }}
       >
         {/* Knob */}
         <span
-          style={{
-            position: "absolute",
-            top: "2px",
-            left: isUnleashed ? "14px" : "2px",
-            width: "12px",
-            height: "12px",
-            background: "var(--text)",
-            borderRadius: "50%",
-            transition: "left 0.3s ease",
-          }}
+          className="absolute top-[2px] w-3 h-3 rounded-full bg-[var(--text)] transition-all duration-300"
+          style={{ left: isUnleashed ? "14px" : "2px" }}
         />
       </span>
-      <span style={{ color: isUnleashed ? "var(--accent-light)" : "var(--text-muted)" }}>
+      <span className={isUnleashed ? "text-[var(--accent-light)]" : "text-[var(--text-muted)]"}>
         {isUnleashed ? "Unleashed" : "Professional"}
       </span>
     </button>

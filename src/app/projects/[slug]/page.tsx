@@ -27,111 +27,53 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <main style={{ maxWidth: "860px", margin: "0 auto", padding: "80px 2rem" }}>
-
-      {/* Back link — hover handled via CSS class, no event handlers needed */}
+    <main className="max-w-[860px] mx-auto px-8 py-20">
       <Link href="/#projects" className="back-link">
         ← Back to projects
       </Link>
 
-      <p className="section-label" style={{ marginTop: "3rem" }}>{project.type}</p>
+      <p className="section-label mt-12">{project.type}</p>
       <h1
-        style={{
-          fontSize: "clamp(2rem, 6vw, 3.5rem)",
-          fontWeight: 900,
-          letterSpacing: "-0.03em",
-          color: "var(--text)",
-          marginBottom: "1.25rem",
-          lineHeight: 1.1,
-        }}
+        className="font-heading font-black text-[var(--text)] leading-none mb-5"
+        style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)", letterSpacing: "-0.03em" }}
       >
         {project.name}
       </h1>
 
-      <p
-        style={{
-          fontSize: "1.0625rem",
-          color: "var(--text-muted)",
-          lineHeight: 1.75,
-          maxWidth: "600px",
-          marginBottom: "3rem",
-        }}
-      >
+      <p className="text-[17px] text-[var(--text-muted)] leading-relaxed max-w-xl mb-12">
         {project.longDescription}
       </p>
 
       {/* Stack */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "4rem" }}>
+      <div className="flex flex-wrap gap-2 mb-16">
         {project.stack.map((tech) => (
           <span
             key={tech}
-            style={{
-              fontSize: "0.8125rem",
-              fontWeight: 500,
-              padding: "5px 12px",
-              borderRadius: "var(--radius-sm)",
-              background: "var(--surface)",
-              border: "1px solid var(--border)",
-              color: "var(--text-muted)",
-            }}
+            className="text-[13px] font-medium px-3 py-1 rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)]"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      {/* Features */}
-      <div className="divider" style={{ marginBottom: "4rem" }} />
+      <div className="divider mb-16" />
 
       <p className="section-label">Features</p>
-      <h2
-        style={{
-          fontSize: "1.75rem",
-          fontWeight: 700,
-          color: "var(--text)",
-          marginBottom: "2rem",
-        }}
-      >
-        What it does
-      </h2>
+      <h2 className="text-[28px] font-bold text-[var(--text)] mb-8">What it does</h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: "1.25rem",
-        }}
-      >
+      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
         {project.features.map((feature) => (
-          <div key={feature.title} className="card" style={{ padding: "1.5rem" }}>
-            <h3
-              style={{
-                fontSize: "1rem",
-                fontWeight: 700,
-                color: "var(--text)",
-                marginBottom: "0.5rem",
-              }}
-            >
-              {feature.title}
-            </h3>
-            <p
-              style={{
-                fontSize: "0.875rem",
-                color: "var(--text-muted)",
-                lineHeight: 1.65,
-              }}
-            >
-              {feature.description}
-            </p>
+          <div key={feature.title} className="card p-6">
+            <h3 className="text-base font-bold text-[var(--text)] mb-2">{feature.title}</h3>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">{feature.description}</p>
           </div>
         ))}
       </div>
 
-      {/* Links */}
       {(project.liveUrl || project.githubUrl || project.videoUrl) && (
         <>
-          <div className="divider" style={{ margin: "4rem 0 3rem" }} />
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <div className="divider my-16" />
+          <div className="flex gap-3 flex-wrap">
             {project.liveUrl && (
               <a className="btn-primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 Live Site →

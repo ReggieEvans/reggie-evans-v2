@@ -13,15 +13,15 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <div className="divider" style={{ maxWidth: "900px", margin: "0 auto" }} />
+        <div className="divider container-section" />
         <About />
-        <div className="divider" style={{ maxWidth: "900px", margin: "0 auto" }} />
+        <div className="divider container-section" />
         <BearCreek />
-        <div className="divider" style={{ maxWidth: "900px", margin: "0 auto" }} />
+        <div className="divider container-section" />
         <Projects />
-        <div className="divider" style={{ maxWidth: "900px", margin: "0 auto" }} />
+        <div className="divider container-section" />
         <Skills />
-        <div className="divider" style={{ maxWidth: "900px", margin: "0 auto" }} />
+        <div className="divider container-section" />
         <Connect />
       </main>
       <Footer />

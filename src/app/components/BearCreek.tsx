@@ -1,93 +1,35 @@
 export default function BearCreek() {
   return (
-    <section
-      style={{
-        padding: "0 2rem 100px",
-        maxWidth: "900px",
-        margin: "0 auto",
-      }}
-    >
+    <section className="container-section pb-24">
       <p className="section-label">Currently</p>
       <h2 className="section-title">Bear Creek Web Studio</h2>
 
-      <div
-        className="card"
-        style={{
-          padding: "2rem 2.5rem",
-          display: "flex",
-          gap: "1.5rem",
-          alignItems: "flex-start",
-        }}
-      >
+      <div className="card flex gap-6 items-start p-8">
         {/* Icon */}
         <div
           aria-hidden
-          style={{
-            width: "52px",
-            height: "52px",
-            borderRadius: "var(--radius-md)",
-            background: "var(--accent-glow)",
-            border: "1px solid var(--border)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            fontSize: "1.5rem",
-          }}
+          className="w-13 h-13 rounded-[var(--radius-md)] border border-[var(--border)] flex items-center justify-center shrink-0 text-2xl"
+          style={{ background: "var(--accent-glow)" }}
         >
           🌲
         </div>
 
         <div>
-          <span
-            style={{
-              display: "inline-block",
-              background: "var(--accent-glow)",
-              border: "1px solid var(--border)",
-              color: "var(--accent-light)",
-              fontSize: "0.6875rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: "3px 10px",
-              borderRadius: "100px",
-              marginBottom: "0.75rem",
-              transition: "all 0.4s ease",
-            }}
+          <span className="inline-block text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--accent-light)] mb-3 transition-all duration-400"
+            style={{ background: "var(--accent-glow)" }}
           >
             Freelance &nbsp;·&nbsp; Owner &amp; Developer
           </span>
 
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: 700,
-              color: "var(--text)",
-              marginBottom: "0.625rem",
-            }}
-          >
+          <h3 className="text-xl font-bold text-[var(--text)] mb-2">
             Bear Creek Web Studio
           </h3>
 
-          <p
-            style={{
-              fontSize: "0.9375rem",
-              color: "var(--text-muted)",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-            }}
-          >
+          <p className="text-[15px] text-[var(--text-muted)] leading-relaxed max-w-lg">
             Building custom web solutions for small businesses. Currently
             accepting new clients — if you need a modern, performant website or
             web app,{" "}
-            <a
-              href="#contact"
-              style={{
-                color: "var(--accent-light)",
-                textDecoration: "none",
-                fontWeight: 500,
-              }}
-            >
+            <a href="#contact" className="text-[var(--accent-light)] font-medium no-underline hover:underline">
               let&apos;s talk
             </a>
             .

@@ -1,66 +1,27 @@
-"use client"
-import ThemeToggle from "./ThemeToggle";
+"use client";
+
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
+
+const navLinks = ["Projects", "Skills", "About", "Contact"];
 
 export default function Nav() {
   return (
-    <nav
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        background: "rgba(10, 10, 15, 0.85)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        borderBottom: "1px solid var(--border)",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0 2rem",
-        height: "60px",
-        transition: "background 0.4s ease",
-      }}
-    >
+    <nav className="sticky top-0 z-50 flex items-center justify-between h-[60px] px-8 border-b border-[var(--border)] bg-[var(--bg)]/85 backdrop-blur-md transition-colors duration-400">
       <Link
         href="/"
-        style={{
-          fontSize: "1.1rem",
-          fontWeight: 800,
-          letterSpacing: "0.15em",
-          fontFamily: "var(--font-display)",
-          color: "var(--text)",
-          textDecoration: "none",
-          textTransform: "uppercase",
-        }}
+        className="text-[var(--text)] font-black uppercase tracking-widest text-sm no-underline font-heading"
       >
         RE
       </Link>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-        <div
-          style={{
-            display: "flex",
-            gap: "1.5rem",
-            fontSize: "0.8125rem",
-            fontWeight: 500,
-          }}
-        >
-          {["Projects", "Skills", "About", "Contact"].map((item) => (
+      <div className="flex items-center gap-6">
+        <div className="flex gap-6 text-[13px] font-medium">
+          {navLinks.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              style={{
-                color: "var(--text-muted)",
-                textDecoration: "none",
-                transition: "color 0.2s ease",
-              }}
-              onMouseEnter={(e) =>
-                ((e.target as HTMLAnchorElement).style.color = "var(--text)")
-              }
-              onMouseLeave={(e) =>
-                ((e.target as HTMLAnchorElement).style.color =
-                  "var(--text-muted)")
-              }
+              className="text-[var(--text-muted)] hover:text-[var(--text)] transition-colors duration-200 no-underline"
             >
               {item}
             </a>

@@ -1,83 +1,36 @@
 export default function Hero() {
   return (
-    <section
-      className="cyber-grid"
-      style={{
-        minHeight: "calc(100vh - 60px)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: "80px 2rem",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
+    <section className="cyber-grid relative min-h-[calc(100vh-60px)] flex flex-col justify-center items-center text-center px-8 py-20 overflow-hidden">
       {/* Ambient glow */}
       <div
         aria-hidden
+        className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none transition-all duration-400"
         style={{
-          position: "absolute",
-          top: "30%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "600px",
-          height: "600px",
-          background:
-            "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)",
-          pointerEvents: "none",
-          transition: "background 0.4s ease",
+          background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)",
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <p className="section-label" style={{ marginBottom: "1.5rem" }}>
-          Available for hire
-        </p>
+      <div className="relative z-10">
+        <p className="section-label mb-6">Available for hire</p>
 
         <h1
-          className="glitch"
+          className="glitch font-heading font-black uppercase leading-none text-[var(--text)] mb-5 transition-colors duration-400"
           data-text="Reggie Evans"
-          style={{
-            fontSize: "clamp(3rem, 10vw, 7rem)",
-            fontWeight: 800,
-            fontFamily: "var(--font-display)",
-            letterSpacing: "0.04em",
-            lineHeight: 1,
-            color: "var(--text)",
-            marginBottom: "1.25rem",
-            transition: "color 0.4s ease",
-            textTransform: "uppercase",
-          }}
+          style={{ fontSize: "clamp(3rem, 10vw, 7rem)", letterSpacing: "0.04em" }}
         >
           Reggie Evans
         </h1>
 
         <p
-          style={{
-            fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
-            color: "var(--text-muted)",
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "2.5rem",
-            transition: "color 0.4s ease",
-          }}
+          className="font-heading font-normal uppercase tracking-[0.12em] text-[var(--text-muted)] mb-10 transition-colors duration-400"
+          style={{ fontSize: "clamp(0.875rem, 2vw, 1.125rem)" }}
         >
           Frontend Developer&nbsp;&nbsp;·&nbsp;&nbsp;8+ Years
         </p>
 
-        <div
-          style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}
-        >
-          <a className="btn-primary" href="#projects">
-            View Projects
-          </a>
-          <a className="btn-outline" href="#contact">
-            Contact Me
-          </a>
+        <div className="flex gap-3 justify-center flex-wrap">
+          <a className="btn-primary" href="#projects">View Projects</a>
+          <a className="btn-outline" href="#contact">Contact Me</a>
         </div>
       </div>
     </section>

@@ -1,67 +1,29 @@
 export default function About() {
   return (
-    <section
-      id="about"
-      style={{
-        padding: "100px 2rem",
-        maxWidth: "900px",
-        margin: "0 auto",
-      }}
-    >
+    <section id="about" className="container-section py-24">
       <p className="section-label">About</p>
       <h2 className="section-title">Hi, I&apos;m Reggie</h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "160px 1fr",
-          gap: "3rem",
-          alignItems: "center",
-        }}
-      >
+      <div className="grid gap-12 items-center" style={{ gridTemplateColumns: "160px 1fr" }}>
         {/* Avatar */}
         <div
           aria-hidden
+          className="w-40 h-40 rounded-[var(--radius-lg)] flex items-center justify-center text-[2.5rem] font-black text-white shrink-0 transition-all duration-400"
           style={{
-            width: "160px",
-            height: "160px",
-            borderRadius: "var(--radius-lg)",
-            background:
-              "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "2.5rem",
-            fontWeight: 900,
-            color: "#fff",
+            background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)",
             letterSpacing: "-0.04em",
-            flexShrink: 0,
-            transition: "background 0.4s ease",
           }}
         >
           RE
         </div>
 
         {/* Text */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            fontSize: "1rem",
-            lineHeight: 1.8,
-            color: "var(--text-muted)",
-          }}
-        >
+        <div className="flex flex-col gap-4 text-base leading-relaxed text-[var(--text-muted)]">
           <p>
             I&apos;m a frontend developer with{" "}
-            <strong style={{ color: "var(--text)", fontWeight: 600 }}>
-              8+ years of experience
-            </strong>{" "}
+            <strong className="text-[var(--text)] font-semibold">8+ years of experience</strong>{" "}
             building fast, responsive, and accessible web applications. I specialize in{" "}
-            <strong style={{ color: "var(--text)", fontWeight: 600 }}>
-              React, Next.js,
-            </strong>{" "}
+            <strong className="text-[var(--text)] font-semibold">React, Next.js,</strong>{" "}
             and modern TypeScript — with a focus on user-first experiences that are clean
             under the hood and delightful on the surface.
           </p>

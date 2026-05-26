@@ -2,62 +2,24 @@ import { skillCategories } from "../data/skills";
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      style={{
-        padding: "100px 2rem",
-        maxWidth: "900px",
-        margin: "0 auto",
-      }}
-    >
+    <section id="skills" className="container-section py-24">
       <p className="section-label">Skills</p>
       <h2 className="section-title">Tech Stack</h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "2.5rem",
-        }}
-      >
+      <div className="grid gap-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
         {skillCategories.map((cat) => (
           <div key={cat.label}>
-            <p
-              style={{
-                fontSize: "0.6875rem",
-                fontWeight: 700,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "var(--accent)",
-                marginBottom: "1.25rem",
-                transition: "color 0.4s ease",
-              }}
-            >
+            <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[var(--accent)] mb-5 transition-colors duration-400">
               {cat.label}
             </p>
 
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+            <ul className="flex flex-col gap-2.5 list-none">
               {cat.skills.map((skill) => (
-                <li
-                  key={skill}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.625rem",
-                    fontSize: "0.9375rem",
-                    color: "var(--text)",
-                  }}
-                >
+                <li key={skill} className="flex items-center gap-2.5 text-[15px] text-[var(--text)]">
                   <span
                     aria-hidden
-                    style={{
-                      width: "6px",
-                      height: "6px",
-                      borderRadius: "50%",
-                      background: "var(--accent)",
-                      flexShrink: 0,
-                      transition: "background 0.4s ease",
-                    }}
+                    className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-400"
+                    style={{ background: "var(--accent)" }}
                   />
                   {skill}
                 </li>
