@@ -34,7 +34,7 @@ export default function Hero() {
             className="font-heading font-black uppercase leading-none text-[var(--text)] mb-5 transition-colors duration-400"
             style={{
               fontSize: "clamp(3rem, 10vw, 7rem)",
-              letterSpacing: "0.04em",
+              letterSpacing: "0.01em",
             }}
           >
             Reggie Evans

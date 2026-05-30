@@ -4,11 +4,12 @@ export default function Connect() {
   return (
     <section id="contact" className="container-section py-24 text-center">
       <p className="section-label">Contact</p>
-      <h2 className="section-title">Let&apos;s Connect</h2>
+      <h2 className="section-title uppercase">Let&apos;s Connect</h2>
 
       <p className="text-[17px] text-[var(--text-muted)] leading-relaxed max-w-md mx-auto mb-10">
-        Open to full-time roles, contract work, and freelance projects.
-        Whether it&apos;s joining a great team or building something new — let&apos;s talk.
+        Open to full-time roles, contract work, and freelance projects. Whether
+        it&apos;s joining a great team or building something new — let&apos;s
+        talk.
       </p>
 
       <a className="btn-primary inline-flex" href="mailto:revans911@gmail.com">

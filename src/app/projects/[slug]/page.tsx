@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "../../data/projects";
+import ImageGallery from "../../components/ImageGallery";
 import type { Metadata } from "next";
 
 interface Props {
@@ -35,7 +36,10 @@ export default async function ProjectPage({ params }: Props) {
       <p className="section-label mt-12">{project.type}</p>
       <h1
         className="font-heading font-black text-[var(--text)] leading-none mb-5"
-        style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)", letterSpacing: "-0.03em" }}
+        style={{
+          fontSize: "clamp(2rem, 6vw, 3.5rem)",
+          letterSpacing: "-0.03em",
+        }}
       >
         {project.name}
       </h1>
@@ -43,6 +47,16 @@ export default async function ProjectPage({ params }: Props) {
       <p className="text-[17px] text-[var(--text-muted)] leading-relaxed max-w-xl mb-12">
         {project.longDescription}
       </p>
+
+      {/* Featured image */}
+      {project.featuredImage && (
+        <img
+          src={project.featuredImage}
+          alt={`${project.name} screenshot`}
+          className="w-full rounded-[var(--radius-lg)] mb-12 border border-[var(--border)]"
+          style={{ maxHeight: "480px", objectFit: "cover" }}
+        />
+      )}
 
       {/* Stack */}
       <div className="flex flex-wrap gap-2 mb-16">
@@ -59,13 +73,22 @@ export default async function ProjectPage({ params }: Props) {
       <div className="divider mb-16" />
 
       <p className="section-label">Features</p>
-      <h2 className="text-[28px] font-bold text-[var(--text)] mb-8">What it does</h2>
+      <h2 className="text-[28px] font-bold text-[var(--text)] mb-8">
+        What it does
+      </h2>
 
-      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
+      <div
+        className="grid gap-5"
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}
+      >
         {project.features.map((feature) => (
           <div key={feature.title} className="card p-6">
-            <h3 className="text-base font-bold text-[var(--text)] mb-2">{feature.title}</h3>
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed">{feature.description}</p>
+            <h3 className="text-base font-bold text-[var(--text)] mb-2">
+              {feature.title}
+            </h3>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+              {feature.description}
+            </p>
           </div>
         ))}
       </div>
@@ -75,21 +98,48 @@ export default async function ProjectPage({ params }: Props) {
           <div className="divider my-16" />
           <div className="flex gap-3 flex-wrap">
             {project.liveUrl && (
-              <a className="btn-primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn-primary"
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Live Site →
               </a>
             )}
             {project.githubUrl && (
-              <a className="btn-outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn-outline"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Code
               </a>
             )}
             {project.videoUrl && (
-              <a className="btn-outline" href={project.videoUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn-outline"
+                href={project.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Watch Demo
               </a>
             )}
           </div>
+        </>
+      )}
+
+      {/* Screenshot gallery */}
+      {project.images.length > 0 && (
+        <>
+          <div className="divider my-16" />
+          <p className="section-label">Screenshots</p>
+          <h2 className="text-[28px] font-bold text-[var(--text)] mb-8">
+            Gallery
+          </h2>
+          <ImageGallery images={project.images} projectName={project.name} />
         </>
       )}
     </main>
