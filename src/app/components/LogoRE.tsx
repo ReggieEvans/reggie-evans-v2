@@ -8,11 +8,30 @@ export default function LogoRE({ className = "" }: { className?: string }) {
       aria-label="Reggie Evans"
       className={className}
     >
-      {/* E bars — transforms removed, all same color as R */}
-      <rect x="5.21" y="0.00"  width="15.62" height="3.07" rx="0.31" fill="#c2c2c7" />
-      <rect x="9.13" y="6.74"  width="11.68" height="3.48" rx="0.23" fill="#c2c2c7" />
-      <rect x="12.77" y="13.08" width="8.07" height="3.64" rx="0.16" fill="#c2c2c7" />
-      {/* R */}
+      <rect
+        x="5.21"
+        y="0.00"
+        width="15.62"
+        height="3.07"
+        rx="0.31"
+        fill="#c2c2c7"
+      />
+      <rect
+        x="9.13"
+        y="6.74"
+        width="11.68"
+        height="3.48"
+        rx="0.23"
+        fill="#c2c2c7"
+      />
+      <rect
+        x="12.77"
+        y="13.08"
+        width="8.07"
+        height="3.64"
+        rx="0.16"
+        fill="#c2c2c7"
+      />
       <text
         x="-2.13"
         y="16.72"

@@ -8,19 +8,10 @@ export default function About() {
       <h2 className="section-title uppercase">Hi, I&apos;m Reggie</h2>
 
       <div
-        className="grid gap-12 items-center"
+        className="flex flex-col md:grid gap-12 items-center"
         style={{ gridTemplateColumns: "240px 1fr" }}
       >
-        {/* Avatar */}
-        <div
-          aria-hidden
-          className="w-50 h-50 rounded-[var(--radius-lg)] flex items-center justify-center text-[2.5rem] font-black text-white shrink-0 transition-all duration-400"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)",
-            letterSpacing: "-0.04em",
-          }}
-        >
+        <div className="flex justify-center md:justify-start">
           <Image
             src={profilePhoto}
             alt="Reggie Evans"
@@ -30,7 +21,6 @@ export default function About() {
           />
         </div>
 
-        {/* Text */}
         <div className="flex flex-col gap-4 text-base leading-relaxed text-[var(--text-muted)]">
           <p>
             I&apos;m a frontend developer with{" "}

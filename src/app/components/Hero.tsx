@@ -9,7 +9,6 @@ export default function Hero() {
 
   return (
     <section className="cyber-grid relative min-h-[calc(100vh-60px)] flex flex-col justify-center items-center text-center px-8 py-20 overflow-hidden">
-      {/* Ambient glow */}
       <div
         aria-hidden
         className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none transition-all duration-400"

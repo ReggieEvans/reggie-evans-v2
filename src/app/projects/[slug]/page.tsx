@@ -48,7 +48,6 @@ export default async function ProjectPage({ params }: Props) {
         {project.longDescription}
       </p>
 
-      {/* Featured image */}
       {project.featuredImage && (
         <img
           src={project.featuredImage}
@@ -58,7 +57,6 @@ export default async function ProjectPage({ params }: Props) {
         />
       )}
 
-      {/* Stack */}
       <div className="flex flex-wrap gap-2 mb-16">
         {project.stack.map((tech) => (
           <span
@@ -131,7 +129,6 @@ export default async function ProjectPage({ params }: Props) {
         </>
       )}
 
-      {/* Screenshot gallery */}
       {project.images.length > 0 && (
         <>
           <div className="divider my-16" />
