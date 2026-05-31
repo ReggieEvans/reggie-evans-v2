@@ -7,12 +7,8 @@ export default function BearCreek() {
       <p className="section-label">Currently</p>
       <h2 className="section-title uppercase">Bear Creek Web Studio</h2>
 
-      <div className="card flex gap-6 items-start p-8">
-        {/* Icon */}
-        <div
-          aria-hidden
-          className="w-36 h-36 rounded-[var(--radius-md)] flex items-center justify-center shrink-0 text-2xl"
-        >
+      <div className="card flex flex-col md:flex-row gap-6 items-start p-8">
+        <div className="flex justify-center md:justify-start w-full md:w-auto shrink-0">
           <Image
             src={bearCreekLogo}
             alt="Bear Creek Web Studio"

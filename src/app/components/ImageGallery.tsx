@@ -31,7 +31,6 @@ export default function ImageGallery({
 
   return (
     <>
-      {/* Grid */}
       <div
         className="grid gap-4"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}
@@ -48,14 +47,12 @@ export default function ImageGallery({
         ))}
       </div>
 
-      {/* Lightbox */}
       {lightboxIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
           style={{ background: "rgba(0,0,0,0.92)" }}
           onClick={close}
         >
-          {/* Close */}
           <button
             onClick={close}
             className="absolute top-5 right-6 text-white text-3xl font-light cursor-pointer"
@@ -64,7 +61,6 @@ export default function ImageGallery({
             ×
           </button>
 
-          {/* Prev */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -76,7 +72,6 @@ export default function ImageGallery({
             ‹
           </button>
 
-          {/* Image */}
           <img
             src={images[lightboxIndex]}
             alt={`${projectName} screenshot ${lightboxIndex + 1}`}
@@ -84,7 +79,6 @@ export default function ImageGallery({
             onClick={(e) => e.stopPropagation()}
           />
 
-          {/* Next */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -96,7 +90,6 @@ export default function ImageGallery({
             ›
           </button>
 
-          {/* Counter */}
           <p className="absolute bottom-5 text-white/50 text-sm">
             {lightboxIndex + 1} / {images.length}
           </p>

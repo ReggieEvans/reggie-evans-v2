@@ -7,7 +7,6 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`} className="no-underline">
       <article className="card flex flex-col gap-4 p-7 h-full cursor-pointer hover:-translate-y-1 hover:border-[var(--accent)] transition-all duration-250">
-        {/* Thumbnail */}
         {project.featuredImage ? (
           <img
             src={project.featuredImage}
@@ -33,7 +32,6 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.description}
           </p>
 
-          {/* Stack tags */}
           <div className="flex flex-wrap gap-1.5 mt-2">
             {project.stack.map((tech) => (
               <span
