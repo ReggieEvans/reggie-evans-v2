@@ -8,7 +8,7 @@ export default function Connect() {
 
       <p className="text-[17px] text-[var(--text-muted)] leading-relaxed max-w-md mx-auto mb-10">
         Open to full-time roles, contract work, and freelance projects. Whether
-        it&apos;s joining a great team or building something new — let&apos;s
+        it&apos;s joining a great team or building something new, let&apos;s
         talk.
       </p>
 
@@ -18,7 +18,7 @@ export default function Connect() {
 
       <div className="flex justify-center gap-3 mt-7">
         <a
-          href="https://linkedin.com/in/reggie-evans"
+          href="https://www.linkedin.com/in/reggie-evans-631b3753/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
@@ -27,7 +27,7 @@ export default function Connect() {
           in
         </a>
         <a
-          href="https://github.com/reggie-evans"
+          href="https://github.com/ReggieEvans"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"

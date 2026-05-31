@@ -5,9 +5,5 @@ interface GlitchProps {
 }
 
 export default function Glitch({ text }: GlitchProps) {
-  return (
-    <div className="layers" data-text={text}>
-      <span className="single-path paths opacity font">{text}</span>
-    </div>
-  );
+  return <span className="single-path paths opacity font">{text}</span>;
 }

@@ -11,8 +11,7 @@ export default function BearCreek() {
         {/* Icon */}
         <div
           aria-hidden
-          className="w-36 h-36 rounded-[var(--radius-md)] border border-[var(--border)] flex items-center justify-center shrink-0 text-2xl"
-          style={{ background: "var(--accent-glow)" }}
+          className="w-36 h-36 rounded-[var(--radius-md)] flex items-center justify-center shrink-0 text-2xl"
         >
           <Image
             src={bearCreekLogo}
