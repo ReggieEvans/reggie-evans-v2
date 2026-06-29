@@ -34,7 +34,9 @@ export default function BearCreek() {
             accepting new clients. If you need a modern, performant website or
             web app,{" "}
             <a
-              href="#contact"
+              href="https://bearcreekwebstudio.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[var(--accent-light)] font-medium no-underline hover:underline"
             >
               let&apos;s talk
