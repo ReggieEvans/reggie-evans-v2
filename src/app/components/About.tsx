@@ -25,7 +25,7 @@ export default function About() {
           <p>
             I&apos;m a frontend developer with{" "}
             <strong className="text-[var(--text)] font-semibold">
-              8+ years of experience
+              6+ years of experience
             </strong>{" "}
             building fast, responsive, and accessible web applications. I
             specialize in{" "}
@@ -37,9 +37,9 @@ export default function About() {
           </p>
           <p>
             Outside the code, I&apos;m a dad to a curious kid who reminds me
-            that problem-solving doesn&apos;t stop when you log off. Whether I'm
-            shipping features or building blanket forts, I&apos;m always
-            learning, creating, and building.
+            that problem-solving doesn&apos;t stop when you log off. Whether
+            I&apos;m shipping features or building blanket forts, I&apos;m
+            always learning, creating, and building.
           </p>
         </div>
       </div>
