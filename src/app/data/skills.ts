@@ -9,18 +9,19 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "React",
       "Next.js",
+      "Angular",
       "TypeScript",
       "Tailwind CSS",
-      "Angular",
-      "shadcn/ui",
+      "SCSS",
+      "Responsive Design",
     ],
   },
   {
     label: "Backend & Data",
-    skills: ["Supabase", "MongoDB", "Node.js", "REST APIs"],
+    skills: ["Next API", "Node.js", "REST APIs", "Supabase", "MongoDB"],
   },
   {
     label: "Tools & Platform",
-    skills: ["Git / GitHub", "Vercel", "Netlify", "Figma", "VS Code"],
+    skills: ["Git / GitHub", "Postman", "Jira", "Figma", "CI/CD"],
   },
 ];

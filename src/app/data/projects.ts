@@ -5,11 +5,9 @@ export interface Project {
   description: string;
   longDescription: string;
   stack: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  videoUrl?: string;
-  featuredImage?: string; // path relative to /public e.g. "/images/fantasy-edge.png"
-  images: string[]; // additional screenshots shown on the project detail page
+  links: { github: string; demo?: string };
+  featuredImage?: string;
+  images: string[];
   features: { title: string; description: string }[];
 }
 
@@ -19,15 +17,15 @@ export const projects: Project[] = [
     name: "Fantasy Edge",
     type: "Full Stack App",
     description:
-      "Fantasy football lineup optimizer with slate management, scouting hub, and bankroll tracker.",
+      "Fantasy football lineup optimizer with slate management, scouting hub and much more.",
     longDescription:
-      "A comprehensive daily fantasy sports platform built for serious players. Features real-time slate management, a proprietary lineup optimizer, and a bankroll tracker to manage entries across contests.",
+      "A comprehensive fantasy sports platform. Features real-time slate management, scouting hub, a lineup optimizer and more. Built with a focus on clean UX and fast navigation.",
     stack: ["Next.js", "TypeScript", "Supabase", "shadcn/ui", "Tailwind CSS"],
+    links: { github: "https://github.com/ReggieEvans/fantasy-edge" },
     images: [
       "/fantasy-edge/fantasy-edge_dashboard.png",
       "/fantasy-edge/fantasy-edge_matchups.png",
       "/fantasy-edge/fantasy-edge_scouting.png",
-      "/fantasy-edge/fantasy-edge_bankroll-tracker.png",
       "/fantasy-edge/fantasy-edge_targeting.png",
       "/fantasy-edge/fantasy-edge_slate-manager.png",
       "/fantasy-edge/fantasy-edge_pool.png",
@@ -66,6 +64,10 @@ export const projects: Project[] = [
     longDescription:
       "A personal game library manager that lets you track your backlog, log progress, and rate completed games. Built with a focus on clean UX and fast navigation.",
     stack: ["React", "TypeScript", "MongoDB", "Node.js", "Tailwind CSS"],
+    links: {
+      github: "https://github.com/ReggieEvans/game-stack",
+      demo: "https://game-stack-taupe.vercel.app/",
+    },
     images: [
       "/gamestack/gamestack-screenshot-1.png",
       "/gamestack/gamestack-screenshot-2.png",
@@ -96,32 +98,41 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "my-dynasty-hub",
-    name: "My Dynasty Hub",
-    type: "Next.js App",
+    slug: "ask-a-pdf",
+    name: "Ask a PDF",
+    type: "RAG AI Chatbot",
     description:
-      "CFB26 dynasty team picker and tracker, deployed to production.",
+      "A RAG (Retrieval-Augmented Generation) tool that lets you upload a PDF and ask questions about it.",
     longDescription:
-      "A tool built for college football dynasty mode players. Helps you pick and track your dynasty team with filtered browsing, ratings, and conference breakdowns.",
-    stack: ["Next.js 15", "TypeScript", "Tailwind CSS"],
-    images: ["/my-dynasty-hub/team-picker-app.png"],
-    featuredImage: "/my-dynasty-hub/team-picker-app.png",
+      "A RAG (Retrieval-Augmented Generation) tool that lets you upload a PDF and ask questions about it. It uses the Gemini API to generate answers based on the content of the PDF file.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API"],
+    links: {
+      github: "https://github.com/ReggieEvans/ask-a-pdf",
+      demo: "https://ask-a-pdf-demo.vercel.app",
+    },
+    images: [
+      "/ask-a-pdf/answer.png",
+      "/ask-a-pdf/mobile.png",
+      "/ask-a-pdf/no-answer.png",
+    ],
+    featuredImage: "/ask-a-pdf/answer.png",
     features: [
       {
-        title: "Team Browser",
-        description: "Filter teams by conference, rating, and prestige.",
+        title: "PDF Upload",
+        description: "Upload a PDF file to start asking questions.",
       },
       {
-        title: "Dynasty Tracker",
-        description: "Log your dynasty progress and season results.",
+        title: "AI Chatbot",
+        description: "Ask questions about the PDF file and get answers.",
       },
       {
-        title: "Comparison Tool",
-        description: "Compare programs side-by-side across key attributes.",
+        title: "Generates Questions",
+        description:
+          "The chatbot generates possible questions based on the content of the PDF file.",
       },
       {
-        title: "Mobile Friendly",
-        description: "Fully responsive — use it on your phone while you play.",
+        title: "Citations",
+        description: "Cite the source of the answer in the chat.",
       },
     ],
   },

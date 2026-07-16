@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
         />
       )}
 
-      <div className="flex flex-wrap gap-2 mb-16">
+      <div className="flex flex-wrap gap-2 mb-8">
         {project.stack.map((tech) => (
           <span
             key={tech}
@@ -68,6 +68,33 @@ export default async function ProjectPage({ params }: Props) {
         ))}
       </div>
 
+      {(project.links.demo || project.links.github) && (
+        <div className="mb-16">
+          <div className="flex gap-3 flex-wrap">
+            {project.links.demo && (
+              <a
+                className="btn-primary"
+                href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo →
+              </a>
+            )}
+            {project.links.github && (
+              <a
+                className="btn-outline"
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Code
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="divider mb-16" />
 
       <p className="section-label">Features</p>
@@ -76,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
       </h2>
 
       <div
-        className="grid gap-5"
+        className="grid gap-5 mb-16"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}
       >
         {project.features.map((feature) => (
@@ -90,44 +117,6 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         ))}
       </div>
-
-      {(project.liveUrl || project.githubUrl || project.videoUrl) && (
-        <>
-          <div className="divider my-16" />
-          <div className="flex gap-3 flex-wrap">
-            {project.liveUrl && (
-              <a
-                className="btn-primary"
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Site →
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                className="btn-outline"
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Code
-              </a>
-            )}
-            {project.videoUrl && (
-              <a
-                className="btn-outline"
-                href={project.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Watch Demo
-              </a>
-            )}
-          </div>
-        </>
-      )}
 
       {project.images.length > 0 && (
         <>
