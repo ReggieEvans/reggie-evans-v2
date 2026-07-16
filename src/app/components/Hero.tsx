@@ -44,7 +44,7 @@ export default function Hero() {
           className="font-heading font-bold uppercase tracking-[0.12em] text-[var(--text-muted)] mb-10 transition-colors duration-400"
           style={{ fontSize: "clamp(0.75rem, 3vw, 1.125rem)" }}
         >
-          Frontend Developer&nbsp;&nbsp;·&nbsp;&nbsp;8+ Years
+          Frontend Developer&nbsp;&nbsp;·&nbsp;&nbsp;6+ Years
         </p>
 
         <div className="flex gap-3 justify-center flex-wrap">

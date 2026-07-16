@@ -36,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.stack.map((tech) => (
               <span
                 key={tech}
-                className="text-[11px] font-medium px-2 py-0.5 rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-muted)]"
+                className="text-[11px] font-medium px-2 py-0.5 rounded-[var(--radius-sm)] border border-[var(--border)] text-[var(--text-muted)]"
               >
                 {tech}
               </span>
